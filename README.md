@@ -44,5 +44,3 @@ POST `/evaluate`
 - [ ] Expose and document all evaluation parameters (e.g., measure_performance, build_dir, etc.) in the API and README
 - [ ] Some evaluation parameters are not yet settable via the API or CLI (e.g., build_dir, measure_performance, etc.)
 - [ ] Add more real-world CUDA kernel tests and examples
-
-Replace `helpers.py` with your actual evaluation helpers code.
