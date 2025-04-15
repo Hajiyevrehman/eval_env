@@ -24,6 +24,7 @@ CUDA_LINEAR = PYTORCH_LINEAR.replace('Model', 'ModelNew')
 def test_evaluate_and_reward_linear():
     # Use a fixed baseline time and tolerance
     baseline_time = 10.0  # ms
+    device = torch.device('cuda:0') if torch.cuda.is_available() else torch.device('cpu')
     result = evaluator.evaluate_and_reward(
         original_model_src=PYTORCH_LINEAR,
         custom_model_src=CUDA_LINEAR,
@@ -33,7 +34,7 @@ def test_evaluate_and_reward_linear():
         tolerance=1e-2,
         num_correct_trials=1,
         num_perf_trials=2,
-        device=torch.device('cuda' if torch.cuda.is_available() else 'cpu'),
+        device=device,
         verbose=False,
     )
     assert 'reward' in result
