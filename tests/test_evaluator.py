@@ -7,9 +7,9 @@ PYTORCH_LINEAR = '''
 import torch
 import torch.nn as nn
 class Model(nn.Module):
-    def __init__(self, in_features=4, out_features=2):
+    def __init__(self, *args, **kwargs):
         super().__init__()
-        self.linear = nn.Linear(in_features, out_features)
+        self.linear = nn.Linear(4, 2)
     def forward(self, x):
         return self.linear(x)
 def get_init_inputs():
